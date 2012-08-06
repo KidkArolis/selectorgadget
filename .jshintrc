@@ -1,0 +1,26 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "regexp": false,
+  "undef": true,
+  "trailing": true,
+  "sub": true,
+
+  "browser": true,
+  "devel": true,
+  "dojo": true,
+  "jquery": true,
+  
+  "indent": 2,
+  "maxlen": 80,
+  "white": true,
+
+  "predef": ["assert", "buster"]
+}
