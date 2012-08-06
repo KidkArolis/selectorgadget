@@ -2,6 +2,7 @@
   "name": "selectorgadget",
   "version": "0.5.0",
   "main": "./lib/interface.js",
+  "amd": {},
   "volo": {
     "baseUrl": "vendors",
     "dependencies": {
