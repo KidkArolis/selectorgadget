@@ -45,7 +45,11 @@ or
 
 ## Release Notes
 
-### 0.5
+### 0.5.1
+
+  - ignore children of elements with class .sg_ignore
+
+### 0.5.0
 
   - this is where the forked version branches off
   - convert all the files to AMD

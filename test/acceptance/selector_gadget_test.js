@@ -5,7 +5,7 @@ require.config({
   }
 });
 
-define(["jquery", "lib/interface"], function ($, SelectorGadget) {
+define(["jquery", "lib/main"], function ($, SelectorGadget) {
 
   buster.testCase("SelectorGadget", {
 
@@ -55,6 +55,55 @@ define(["jquery", "lib/interface"], function ($, SelectorGadget) {
         done();
       };
       $(".logo").trigger("mousedown");
+    },
+
+    "elements with class .sg_ignore and their children": {
+
+      setUp: function () {
+        $("body").append("" +
+          "<div class='parent sg_ignore'>" +
+            "<span class='child'>child</span>" +
+          "</div>"
+        );
+
+        // make borders visible
+        // TODO borders should be made visible in the constructor
+        // to simplify this test
+        $(".logo").mouseover();
+        assert.equals($(".sg_border:visible").length, 4);
+        $(".logo").mouseout();
+        assert.equals($(".sg_border:visible").length, 0);
+      },
+
+      ".child shouldn't have classes sg_selected, sg_suggested": function () {
+        refute($(".child").hasClass("sg_selected"));
+        refute($(".child").hasClass("sg_suggested"));
+      },
+
+      "are ignored when mousing over": function () {
+        $(".child").mouseover();
+        assert.equals($(".sg_border:visible").length, 0);
+        refute($(".child").hasClass("sg_selected"));
+      },
+
+      // ~ unit test
+      "are ignored when mousing out": function () {
+        this.sg.removeBorders = this.spy();
+        $(".child").mouseover();
+        refute.called(this.sg.removeBorders);
+      },
+
+      "are ignored when clicking": function () {
+        $(".child").mousedown();
+        refute($(".child").hasClass("sg_selected"));
+        refute($(".child").hasClass("sg_suggested"));
+      },
+
+      "are not highlighted when referenced in setSelector()": function () {
+        this.sg.setSelector(".child");
+        refute($(".child").hasClass("sg_suggested"));
+      }
+
     }
 
   });

@@ -22,5 +22,5 @@
   "maxlen": 80,
   "white": true,
 
-  "predef": ["assert", "buster"]
+  "predef": ["buster", "assert", "refute"]
 }
