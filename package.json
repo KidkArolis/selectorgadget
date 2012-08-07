@@ -4,6 +4,7 @@
   "main": "./lib/main.js",
   "amd": {},
   "volo": {
+    "url": "https://github.com/KidkArolis/selectorgadget/tarball/test#lib",
     "baseUrl": "vendors",
     "dependencies": {
       "jquery": "github:jquery/jquery/1.7.2",
