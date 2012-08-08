@@ -45,6 +45,10 @@ or
 
 ## Release Notes
 
+### 0.5.2
+
+  - setSelector() now takes an options object, where silent: true can be used to supress onChangeSelector function call
+
 ### 0.5.1
 
   - ignore children of elements with class .sg_ignore

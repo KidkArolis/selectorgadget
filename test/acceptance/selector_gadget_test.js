@@ -104,6 +104,20 @@ define(["jquery", "lib/main"], function ($, SelectorGadget) {
         refute($(".child").hasClass("sg_suggested"));
       }
 
+    },
+
+    "setSelector() with no `silent` option calls onChangeSelector()": function () {
+      this.sg.onChangeSelector = this.spy();
+      this.sg.setSelector("foo");
+      this.sg.setSelector("bar");
+      assert.calledTwice(this.sg.onChangeSelector);
+    },
+
+    "setSelector() with `silent` option supresses onChangeSelector()": function () {
+      this.sg.onChangeSelector = this.spy();
+      this.sg.setSelector("foo");
+      this.sg.setSelector("bar", { silent: true });
+      assert.calledOnce(this.sg.onChangeSelector);
     }
 
   });
